@@ -35,6 +35,7 @@ public class MainMenu {
                 case 2:
                 // see all reservations
                     //HotelResource.displayAllRooms();
+                    //empy commit
                     break;
                 case 3:
                     // here you need to create a customer by calling the mothod createACustomer in the HotelResource class
