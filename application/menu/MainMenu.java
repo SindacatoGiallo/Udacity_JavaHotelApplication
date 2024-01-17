@@ -49,6 +49,7 @@ public class MainMenu {
                     break;
                 case 4:
                     // call the Admin Menu
+                    AdminMenu.main(null);
                     break;
                 case 5:
                     System.out.println("Exiting the program...");
