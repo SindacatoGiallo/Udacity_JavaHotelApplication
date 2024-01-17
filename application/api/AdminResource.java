@@ -8,6 +8,7 @@ public class AdminResource {
 
     public static void addRoom(List<IRoom> rooms) {
         for (IRoom room : rooms) {
+            
             ReservationService.addRoom(room);
         }
         
