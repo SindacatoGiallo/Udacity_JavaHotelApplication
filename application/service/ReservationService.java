@@ -1,12 +1,14 @@
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class ReservationService {
 
-    public static List<Reservation> reservations;
-    public static Map<String, IRoom> rooms;
-    public static List<IRoom> roomList;
+    public static List<Reservation> reservations = new ArrayList<>();
+    public static Map<String, IRoom> rooms = new HashMap<>();
+    public static List<IRoom> roomList = new ArrayList<>();
     public static Map<Customer, List<Reservation>> customerReservations;
     public static List<IRoom> availableRooms = roomList;
 
