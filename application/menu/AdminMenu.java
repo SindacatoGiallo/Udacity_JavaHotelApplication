@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class AdminMenu {
     
 //create a while loop that acts as a CLI menu
@@ -32,9 +33,16 @@ public class AdminMenu {
                     String roomNumber = scanner.nextLine();
                     System.out.println("Enter the price: ");
                     Double price = scanner.nextDouble();
+                    scanner.nextLine(); // Consume the newline character
                     System.out.println("Enter the room type: ");
-                    String roomType = scanner.nextLine();
-                    IRoom room = new Room(roomNumber, price, RoomType.valueOf(roomType));
+                    RoomType roomType = null;
+                    String roomTypeStr = scanner.nextLine();
+                    if (roomTypeStr.equalsIgnoreCase("single")) {
+                        roomType = RoomType.SINGLE;
+                    } else if (roomTypeStr.equalsIgnoreCase("double")) {
+                        roomType = RoomType.DOUBLE;
+                    }
+                    IRoom room = new Room(roomNumber, price, roomType);
                     List<IRoom> rooms = new ArrayList<>();
                     rooms.add(room);
                     AdminResource.addRoom(rooms);
