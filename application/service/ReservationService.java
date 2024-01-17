@@ -13,7 +13,7 @@ public class ReservationService {
     
 
 
-    public void addRoom(IRoom room){
+    public static void addRoom(IRoom room){
         roomList.add(room);
         rooms.put(room.getRoomNumber(), room);        
     }

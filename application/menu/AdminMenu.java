@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AdminMenu {
@@ -8,6 +10,7 @@ public class AdminMenu {
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
+            displayAdminMenu();
             choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
             switch (choice) {
@@ -25,15 +28,17 @@ public class AdminMenu {
                     break;
                 case 4:
                     // add a room
-                    System.out.println("Enter the room number: ");
+                    System.out.println("Enter the room number: ");  
                     String roomNumber = scanner.nextLine();
-                    System.out.println("Enter the price per night: ");
-                    Double pricePerNight = Double.parseDouble(scanner.nextLine());
-                    System.out.println("Enter the room type (SINGLE or DOUBLE): ");
-                    RoomType roomType = RoomType.valueOf(scanner.nextLine());
-                    //i need to create a list of IRoom objects to pass to the addRoom method
-                    
-                    AdminResource.addRoom(roomNumber, pricePerNight, roomType);
+                    System.out.println("Enter the price: ");
+                    Double price = scanner.nextDouble();
+                    System.out.println("Enter the room type: ");
+                    String roomType = scanner.nextLine();
+                    IRoom room = new Room(roomNumber, price, RoomType.valueOf(roomType));
+                    List<IRoom> rooms = new ArrayList<>();
+                    rooms.add(room);
+                    AdminResource.addRoom(rooms);
+                                        
                     break;
                 case 5:
                     // back to main menu
@@ -43,6 +48,16 @@ public class AdminMenu {
                     break;
             }
         } while (choice != 5);
+    }
+
+    public static void displayAdminMenu() {
+        System.out.println("Welcome Admin! ");
+        System.out.println("1. See all Customers");
+        System.out.println("2. See all Rooms");
+        System.out.println("3. See all Reservations");
+        System.out.println("4. Add a Room");
+        System.out.println("5. Back to Main Menu");
+        System.out.println("Please select a number for the menu option");
     }
 
 

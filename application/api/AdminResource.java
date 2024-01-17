@@ -6,9 +6,12 @@ public class AdminResource {
         return CustomerService.getCustomer(email);
     }
 
-    //public static void addRoom(List<IRoom> rooms) {
-    //    ReservationService.addRoom(rooms);
-    //}
+    public static void addRoom(List<IRoom> rooms) {
+        for (IRoom room : rooms) {
+            ReservationService.addRoom(room);
+        }
+        
+    }
 
     public static List<IRoom> getAllRooms() {
         return ReservationService.roomList;
